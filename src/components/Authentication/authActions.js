@@ -1,8 +1,10 @@
 import axios from "axios";
-import { createUser } from "../../store/userReducer";
+import { setUser } from "../../store/userReducer";
+// import { createUser } from "../../store/userReducer";
 
 export const signup = (userData) => async (dispatch) => {
   try {
+    debugger
     const response = await fetch("http://localhost:8081/signup", {
       method: "POST",
       headers: {
@@ -14,9 +16,9 @@ export const signup = (userData) => async (dispatch) => {
     if (response.ok) {
       const data = await response.json();
       // Dispatch a success action if needed
-      // dispatch(createUser({ type: 'SIGNUP_SUCCESS', payload: response.data }));
+      dispatch(setUser({ type: 'SIGNUP_SUCCESS', payload: response.data }));
     } else {
-      console.error("Error creating new book:", response.statusText);
+      console.error("Error creating new user:", response.statusText);
     }
   } catch (error) {
     // Dispatch an error action if needed

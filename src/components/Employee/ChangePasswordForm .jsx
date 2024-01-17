@@ -53,16 +53,17 @@ const ChangePasswordForm = ({ onSubmit }) => {
         toast.error("Old Password Wrong!", {
           position: toast.POSITION.TOP_CENTER,
         });
+      } else {
+        let data = { password: values.newPassword, empid: user.user_id };
+
+        dispatch(updateEmpPassword(data));
+        toast.success("Change Password successfully!", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+        resetForm();
+        setSubmitting(false);
+
       }
-
-      let data = { password: values.newPassword, empid: user.user_id };
-
-      dispatch(updateEmpPassword(data));
-      toast.success("Change Password successfully!", {
-        position: toast.POSITION.TOP_CENTER,
-      });
-      resetForm();
-      setSubmitting(false);
     },
   });
 

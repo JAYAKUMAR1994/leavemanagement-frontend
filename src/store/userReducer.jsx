@@ -20,34 +20,7 @@ const userReducer = createSlice({
   },
 });
 
-// export const updateEmpPassword = (updatedEmpPassword) => async (dispatch) => {
-//   try {
-//     const response = await fetch(
-//       `http://localhost:8081/updatedEmpPassword/${updatedEmpPassword.empid}`,
-//       {
-//         method: "PUT",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(updatedEmpPassword),
-//       }
-//     );
 
-//     if (response.ok) {
-//       const responseData = await response.json();
-//       const user = responseData.user.find(
-//         (item) => item.user_id === updatedEmpPassword.empid
-//       );
-
-//       dispatch(setUser(user));
-//       dispatch(setEmployees(responseData.employees));
-//     } else {
-//       console.error("Failed to  update EmpPassword");
-//     }
-//   } catch (error) {
-//     console.error("Error updating EmpPassword", error);
-//   }
-// };
 
 export default userReducer.reducer;
 export const { setUser, setAllUser, setLoggedIn } = userReducer.actions;

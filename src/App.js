@@ -28,12 +28,13 @@ function App() {
     <div>
       <Provider store={Store}>
         <AuthProvider>
-          {/* <Login/> */}
-          {/* <Signup/> */}
+         
           <NavBar />
-          {/* <TitleManager title="Default Title" /> */}
+
+        
+
           <Routes>
-            <Route path="/" element={<AdminDashboard />}>
+            <Route path="/admin" element={<AdminDashboard />}>
               <Route
                 path="/admin/dashboard"
                 element={<AdminDashBoardTable status="all" dashbord="true" />}

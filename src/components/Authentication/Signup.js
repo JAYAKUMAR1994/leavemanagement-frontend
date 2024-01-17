@@ -3,9 +3,10 @@ import React from "react";
 import { TextField, Button, Container, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { signup } from "./AuthContext";
+// import { signup } from "./AuthContext";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { signup } from "./authActions";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -54,8 +55,9 @@ const Signup = () => {
       formik.validateForm().then(() => {
         if (formik.isValid) {
           try {
+            debugger
             // Dispatch your async action or API call here
-            dispatch(Signup(values));
+            dispatch(signup(values));
             toast.success("User submitted successfully!", {
               position: toast.POSITION.TOP_CENTER,
             });
